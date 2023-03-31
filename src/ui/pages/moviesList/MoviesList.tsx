@@ -1,30 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import styled from 'styled-components'
-import { getMovies, searchMovie } from '../../application/movieServices'
-import { type MovieApiResponse } from '../../shared-kernel'
-import MovieComponent from '../components/movie/MovieComponent'
-import Searchbar from '../components/searchbar/Searchbar'
-
-const Body = styled.div`
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-}`
-
-const SearchbarContainer = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}`
-const MoviesListContainer = styled.div`
-    margin: 10px;
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 20px;
-}`
+import { getMovies, searchMovie } from '../../../application/movieServices'
+import { type MovieApiResponse } from '../../../shared-kernel'
+import MovieComponent from '../../components/movie/MovieComponent'
+import Searchbar from '../../components/searchbar/Searchbar'
+import {
+  Body,
+  MoviesListContainer,
+  SearchbarContainer,
+} from './MoviesListStyles'
 
 export default function MoviesList(): JSX.Element {
   const [moviesList, setMoviesList] = useState<MovieApiResponse>([])
